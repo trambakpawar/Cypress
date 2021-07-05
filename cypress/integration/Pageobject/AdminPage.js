@@ -13,7 +13,16 @@ const username1 = "#systemUser_userName"
 const status = "#systemUser_status"
 const password = "#systemUser_password"
 const confirmpassword = "#systemUser_confirmPassword"
-
+// admin- organization page 
+const organizationtab = "#menu_admin_Organization"
+const ginfo = "#menu_admin_viewOrganizationGeneralInformation"
+const editbutton = "#btnSaveGenInfo"
+const savebutton1 = "#btnSaveGenInfo"
+const city = "#organization_city"
+const locations = "#menu_admin_viewLocations"
+const country = "#searchLocation_country"
+const city1 = "#searchLocation_city"
+const searchbutton1 = "#btnSearch"
 const admindata = require("../../fixtures/UserData/AdminPage.json")
 export class admin {
 
@@ -52,5 +61,28 @@ export class admin {
         cy.get(status).select(admindata.status)
         cy.get(password).type(admindata.password)
         cy.get(confirmpassword).type(admindata.confirmpassword)
+    }
+    organizationtab() {
+        cy.get(organizationtab).click({ force: true })
+    }
+    ginfo() {
+        cy.get(ginfo).click({ force: true })
+    }
+    editbutton() {
+        cy.get(editbutton).click()
+    }
+    filldata() {
+        cy.get(city).clear()
+        cy.get(city).type(admindata.city)
+        cy.get(savebutton1).click()
+    }
+
+    location() {
+        cy.get(locations).click({ force: true })
+    }
+    searchlocation() {
+        cy.get(city1).type(admindata.city1)
+        cy.get(country).select(admindata.country)
+        cy.get(searchbutton1).click()
     }
 }

@@ -7,5 +7,8 @@
     "username3": "Trambak",
     "status": "Enabled",
     "password": "12345678",
-    "confirmpassword": "12345678"
+    "confirmpassword": "12345678",
+    "city": "Nashik",
+    "city1": "Texas",
+    "country": "United States"
 }
