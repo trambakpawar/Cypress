@@ -35,10 +35,37 @@ When(/^I click on organization and locations$/, function () {
 
 When(/^I search the city and country$/, function () {
     a.searchlocation()
-
 });
 
-Then(/^User info get sucessfully saved.$/, function () {
+Then(/^Inserted location get displayed$/, function () {
     cy.contains("Texas").should("be.visible")
+    cy.screenshot()
+});
+
+When('I search the city and country and delete the location', function () {
+    a.searchlocation()
+    a.checklocation()
+    a.deletebutton();
+    a.confirmdelete()
+})
+
+Then(/^Inserted location get deleted$/, function () {
+    cy.contains("Sucessfully deleted")
+    cy.screenshot()
+});
+
+
+When(/^I click on organization and structure$/, function () {
+    a.organizationtab()
+    a.structurepage()
+});
+
+When(/^I add the position in organization$/, function () {
+    a.addposition()
+    a.addunit()
+});
+
+Then(/^Organization get sucessfully changed.$/, function () {
+    cy.get('#divMessageBar').should('contain', 'Successfully Saved')
     cy.screenshot()
 });

@@ -10,5 +10,8 @@
     "confirmpassword": "12345678",
     "city": "Nashik",
     "city1": "Texas",
-    "country": "United States"
+    "country": "United States",
+    "unitid": "1",
+    "unitname": "Technical Lead 1",
+    "descrption": "bla bla bla"
 }

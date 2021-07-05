@@ -20,7 +20,7 @@ Scenario: Delete the Post
     When I select the post and delete
     Then message should be deleted from the page
 
-@focus
+
 Scenario: Edit the Post 
     Given I login into the system
     When I click on the buzz menu

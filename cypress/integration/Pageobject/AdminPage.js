@@ -23,6 +23,19 @@ const locations = "#menu_admin_viewLocations"
 const country = "#searchLocation_country"
 const city1 = "#searchLocation_city"
 const searchbutton1 = "#btnSearch"
+const deletebutton = "#btnDelete"
+const confirmdelete = "#dialogDeleteBtn"
+const locationcheckbox = "#ohrmList_chkSelectAll"
+const structure = "#menu_admin_viewCompanyStructure"
+const addbutton = "#treeLink_addChild_11"
+const deletebutton1 = "#treeLink_delete_15"
+
+// add unit form 
+const unitid = "#txtUnit_Id"
+const unitname = "#txtName"
+const description = "#txtDescription"
+const editbutton1 = "#btnEdit"
+
 const admindata = require("../../fixtures/UserData/AdminPage.json")
 export class admin {
 
@@ -84,5 +97,32 @@ export class admin {
         cy.get(city1).type(admindata.city1)
         cy.get(country).select(admindata.country)
         cy.get(searchbutton1).click()
+    }
+
+    deletebutton() {
+        cy.get(deletebutton).click()
+
+    }
+    confirmdelete() {
+        cy.get(confirmdelete).click()
+    }
+
+    checklocation() {
+        cy.get(locationcheckbox).check()
+    }
+
+    structurepage() {
+        cy.get(structure).click({ force: true })
+    }
+
+    addposition() {
+        cy.get(editbutton1).click()
+        cy.get(addbutton).click()
+    }
+    addunit() {
+        cy.get(unitid).type(admindata.unitid)
+        cy.get(unitname).type(admindata.unitname)
+        cy.get(description).type(admindata.descrption)
+        cy.get(buttonsave).click()
     }
 }
