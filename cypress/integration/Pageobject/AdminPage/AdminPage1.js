@@ -33,7 +33,7 @@ export class admin1 {
     }
 
     deleteskill() {
-        cy.get(deletecheck).check()
+        cy.contains('tr', 'Testing').find('input').check()
         cy.get(deletebutton).click()
     }
 
@@ -47,7 +47,7 @@ export class admin1 {
 
     deleteedu() {
         cy.get(education).click({ force: true })
-        cy.contains('tr','Diploma in Computer Engineering').find('input').check()
+        cy.contains('tr', 'Diploma in Computer Engineering').find('input').check()
         cy.get(deletebutton).click()
     }
 }
