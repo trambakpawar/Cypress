@@ -33,3 +33,18 @@ Then(/^Deleted skills message should get displayed on the page$/, function () {
     cy.contains("Successfully Deleted")
 });
 
+When(/^I add the education to database$/, function () {
+    ad.addeducation()
+});
+
+Then(/^Education are displayed on the page$/, function () {
+    cy.get('.message').contain("Sucessfully Saved")
+});
+
+When(/^I delete the education to database$/, function () {
+    ad.deleteedu()
+});
+
+Then(/^Education get deleted displayed on the page$/, function () {
+    cy.contain("Sucessfully Deleted")
+});
