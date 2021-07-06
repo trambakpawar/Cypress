@@ -52,7 +52,7 @@ Scenario: Delete the organization locations
     When I search the city and country and delete the location
     Then User info get sucessfully saved. 
 
-@focus
+
 Scenario: Change the organization structure
     Given Im login into the system
     When I click on organization and structure

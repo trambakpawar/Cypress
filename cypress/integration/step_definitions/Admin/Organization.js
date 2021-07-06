@@ -1,4 +1,4 @@
-import { admin } from "../../Pageobject/AdminPage";
+import { admin } from "../../Pageobject/AdminPage/AdminPage";
 import { loginpage } from "../../Pageobject/LoginPage";
 import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
 
@@ -67,5 +67,16 @@ When(/^I add the position in organization$/, function () {
 
 Then(/^Organization get sucessfully changed.$/, function () {
     cy.get('#divMessageBar').should('contain', 'Successfully Saved')
+    cy.screenshot()
+});
+
+
+When(/^I delete the position in organization$/, function () {
+    a.deleteunit()
+
+});
+
+Then(/^Organization get sucessfully deleted.$/, function () {
+    cy.get('#divMessageBar').should('contain', 'Successfully Deleted')
     cy.screenshot()
 });
