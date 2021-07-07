@@ -5,14 +5,12 @@ const lp = new loginpage()
 const po = new post()
 
 
-Given(/^I login into the system$/, function () {
+Given(/^I login into the system and I click on the buzz menu$/, function () {
     lp.login()
     cy.log("Login Sucess")
-});
-
-When(/^I click on the buzz menu$/, function () {
     po.buzzapge()
 });
+
 
 Then(/^I post the message in textbox$/, function () {
     po.updatestatus()
@@ -21,7 +19,7 @@ Then(/^I post the message in textbox$/, function () {
 });
 
 Then(/^message should be displayed on page$/, function () {
-    cy.contains("bla bla bla")
+    cy.get("#postBody").get("#postContent").contains("bla bla bla")
 });
 
 Then(/^I upload image and message in textbox$/, function () {
@@ -39,7 +37,7 @@ When(/^I select the post and delete$/, function () {
 });
 
 Then(/^message should be deleted from the page$/, function () {
-    cy.contains("Sucess")
+    cy.get("#successDataModal").contains("Successfully Deleted")
     cy.screenshot()
 });
 
@@ -50,7 +48,7 @@ When(/^I select the post and edit$/, function () {
 });
 
 Then(/^message should be edited$/, function () {
-    cy.contains("baba black ship")
+    cy.get("#postBody").get("#postContent").contains("baba black ship")
     cy.screenshot()
 });
 

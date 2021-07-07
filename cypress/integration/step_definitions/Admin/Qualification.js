@@ -1,5 +1,5 @@
 import { admin } from "../../Pageobject/AdminPage/AdminPage";
-import { admin1 } from "../../Pageobject/AdminPage/AdminPage1";
+import { admin1 } from "../../Pageobject/AdminPage/QualificationPage";
 import { loginpage } from "../../Pageobject/LoginPage";
 import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
 

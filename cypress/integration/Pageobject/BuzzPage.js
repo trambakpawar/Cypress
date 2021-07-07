@@ -1,19 +1,15 @@
 /// <reference types="Cypress" />
 
-// upload page 
+// upload page
 const buzzpage = "#menu_buzz_viewBuzz"
 const updatestatus = "#createPost_content"
 const postbutton = "#postSubmitBtn"
 const uploadimage = "#tabLink2"
 const uploadbutton = '#image-upload-button'
 const imageupload = "#imageUploadBtn"
-const deletemenu = '#submenu12'
 const deleteconfirm = "#delete_confirm"
-const editmenu = '#submenu14'
-const editbox = "#editshareBox_14"
-const editbutton = "#btnEditShare_14"
 
-
+const buzzdata = require("../../fixtures/UserData/BuzzPage.json")
 export class post {
 
     buzzapge() {
@@ -21,7 +17,7 @@ export class post {
     }
 
     updatestatus() {
-        cy.get(updatestatus).type("bla bla bla")
+        cy.get(updatestatus).type(buzzdata.comment)
     }
 
     post() {
@@ -44,14 +40,18 @@ export class post {
 
     deletepost() {
 
-        cy.get(deletemenu).contains("Delete").click({ force: true })
+        cy.get('.dropdown').children().first().click().then(() => {
+            cy.get("li").contains("Delete").click({ force: true })
+        })
         cy.get(deleteconfirm).click()
     }
 
     editpost() {
-        cy.get(editmenu).contains("Edit").click({ force: true })
-        cy.get(editbox).clear()
-        cy.get(editbox).type("baba black ship")
-        cy.get(editbutton).click()
+        cy.get('.dropdown').children().first().click().then(() => {
+            cy.get("li").contains("Edit").click({ force: true })
+        })
+        cy.get(".shareBox popupEdit shareEditText").clear()
+        cy.get(".in > .modal-body > .popUpContainer").type(buzzdata.message)
+        cy.get('.btnEditShare').focused().click({ force: true })
     }
 }

@@ -1,8 +1,7 @@
 Feature: Check the Directory page
 
 Scenario Outline: Search the Directory
-    Given I login into the system
-    When I click on the directory menu
+    Given I login into the system and click on the directory menu
     Then I search the "<username>" in search box
     Then "<username>" should be displayed on page
 

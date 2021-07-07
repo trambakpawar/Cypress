@@ -8,11 +8,10 @@ export class directory {
         cy.get(directorypage).click()
     }
 
-    searchbutton() {
-        cy.get(searchbutton).click()
-    }
 
     search(user) {
         cy.get(username).type(user)
+        cy.wait(1000)
+        cy.get(searchbutton).click()
     }
 }
