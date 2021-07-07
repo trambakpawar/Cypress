@@ -99,7 +99,7 @@
     cypress/cucumber-json
     cypress/downloads
 
-## For Dynamic Web Elemnets
+## 12. For Dynamic Web Elemnets
         cy.get('.dropdown').children().first().click().then(() => {
             cy.get("li").contains("Edit").click({ force: true })
         })
