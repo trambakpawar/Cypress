@@ -12,17 +12,18 @@ Given(/^I login into the system and I click on the buzz menu$/, function () {
 });
 
 
-Then(/^I post the message in textbox$/, function () {
+When(/^I post the message in textbox$/, function () {
     po.updatestatus()
     cy.wait(1000)
     po.post()
 });
 
 Then(/^message should be displayed on page$/, function () {
-    cy.get("#postBody").get("#postContent").contains("bla bla bla")
+    cy.get("#buzz").contains("bla bla bla").should("be.visible")
+    cy.screenshot()
 });
 
-Then(/^I upload image and message in textbox$/, function () {
+When(/^I upload image and message in textbox$/, function () {
     po.uploadimage()
     po.imagebutton()
 });

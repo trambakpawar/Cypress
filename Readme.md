@@ -1,10 +1,10 @@
 # The Cypress with Cucumber Framework
 
 ## 1. Installation of  Node in Windows System
-    1. Download the Node.js MSI Installer for your system 
+    1. Download the Node.js MSI Installer for your system
     https://nodejs.org/en/download/
     2. Create the Cypress Project directory
-    3. Open CMD 
+    3. Open CMD
     4. Type “npm install”
     5. Type  “npm install cypress –save-dev”
     6. Type “npx cypress open”
@@ -35,7 +35,7 @@
           "cucumberJson": {
                   "generate": true,
               }
-	      
+
 	npm run cy:report
 ## 6. File Upload:
        npm install --save-dev cypress-file-upload
@@ -97,8 +97,12 @@
     cypress/screenshots
     cypress/videos
     cypress/cucumber-json
-    cypress/downloads 
+    cypress/downloads
 
+## For Dynamic Web Elemnets
+        cy.get('.dropdown').children().first().click().then(() => {
+            cy.get("li").contains("Edit").click({ force: true })
+        })
 
 # Folder Structure:-
 
@@ -113,13 +117,13 @@
       All the files are stored in cypress/Integration folder.
 
 ## 4. Step definitions:
-      All feature files with scenarios should be added under cypress/steps/ folder 
+      All feature files with scenarios should be added under cypress/steps/ folder
 
 ## 5. Cucumber Feature Files:
          All feature files with scenarios should be added under cypress/integration/feature_name .feature folder
- 
+
 ## 6. Package.json:
-       After adding your command to Makefile you should add the relevant script in package.json on root folder 
+       After adding your command to Makefile you should add the relevant script in package.json on root folder
 
 ## 7. ScreensShots:
         All the screenshots are stored into cypress/screenshots folder
@@ -130,7 +134,7 @@
 
 
 
-# Links for support 
+# Links for support
     1. JavaScript [here] (https://www.w3schools.com/js/default.asp)
     2. Cypress [here] (https://www.cypress.io/)
-    3. Cucumber [here] (https://cucumber.io/docs/cucumber/)     
+    3. Cucumber [here] (https://cucumber.io/docs/cucumber/)

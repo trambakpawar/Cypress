@@ -50,7 +50,7 @@ export class post {
         cy.get('.dropdown').children().first().click().then(() => {
             cy.get("li").contains("Edit").click({ force: true })
         })
-        cy.get(".shareBox popupEdit shareEditText").clear()
+        cy.get("#editshareBox_20").contains(buzzdata.comment).clear()
         cy.get(".in > .modal-body > .popUpContainer").type(buzzdata.message)
         cy.get('.btnEditShare').focused().click({ force: true })
     }

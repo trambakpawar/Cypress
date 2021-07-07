@@ -1,15 +1,15 @@
 Feature: Check the Buzz page
 
-
+@focus
 Scenario: Post the Update
     Given I login into the system and I click on the buzz menu
-    Then I post the message in textbox
+    When I post the message in textbox
     Then message should be displayed on page
 
 
 Scenario: Post the Image
     Given I login into the system and I click on the buzz menu
-    Then I upload image and message in textbox
+    When I upload image and message in textbox
     Then image and message should be displayed on page
 
 
