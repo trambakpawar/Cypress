@@ -6,13 +6,10 @@ Given('I open login page', function () {
     lp.visit1()
 });
 
-When('I submit {string} and {string}', function (username, password) {
+When('I submit {string} and {string} and Click on login button', function (username, password) {
     lp.setusername(username)
     cy.wait(1000)
     lp.setpassword(password)
-});
-
-When('Click on login button', function () {
     lp.loginbutton()
 });
 

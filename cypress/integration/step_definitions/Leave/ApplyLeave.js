@@ -5,6 +5,7 @@ const lp = new loginpage()
 const lv = new leave()
 const leave_days = '#assignleave_partialDays'
 
+
 Given(/^I login into the system and I Click on the Leave Page$/, function () {
     lp.login()
     lv.leavepage()
@@ -31,7 +32,6 @@ When(/^I click on the leave list page and search the employee$/, function () {
 });
 
 Then(/^Employee name should get displayed$/, function () {
-
     cy.get("#content").contains("Haq")
     cy.screenshot()
 });

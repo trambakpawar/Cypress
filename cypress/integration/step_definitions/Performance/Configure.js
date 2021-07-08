@@ -6,24 +6,18 @@ const lp = new loginpage()
 const pf = new perform()
 
 
-Given(/^I login into the system$/, function () {
+Given(/^I login into the system and click on the Performance page$/, function () {
     lp.login()
-});
-
-When(/^I click on the Performance page$/, function () {
     pf.performancepage()
 });
 
-When(/^I click on the Configure tab and select the KPI's$/, function () {
-
+When(/^I click on the Configure tab and select the KPI's and add the job to performance page$/, function () {
     pf.configuretab()
     pf.kpi()
-});
-When(/^I add the job to performance page$/, function () {
     pf.addjob()
-
 });
-When(/^Job get added successfully$/, function () {
+
+When(/^Job get added successfully and search the job and delete it$/, function () {
     if (cy.get('h1').contains("Error")) {
         cy.screenshot()
         cy.visit("https://opensource-demo.orangehrmlive.com/index.php/performance/searchKpi")
@@ -32,11 +26,9 @@ When(/^Job get added successfully$/, function () {
         cy.screenshot()
         cy.visit("https://opensource-demo.orangehrmlive.com/index.php/performance/searchKpi")
     }
-});
-
-When(/^I search the job and delete it$/, function () {
     pf.searchjob()
 });
+
 
 Then(/^job delete message get displayed$/, function () {
     cy.get('.message').contains("Successfully Deleted")

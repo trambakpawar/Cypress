@@ -15,9 +15,11 @@ export class loginpage {
 
         cy.get(username).type(username1)
     }
+
     setpassword(password1) {
         cy.get(password).type(password1)
     }
+
     loginbutton() {
         cy.get(loginbutton).click()
     }
@@ -33,7 +35,6 @@ export class loginpage {
             .then(() => {
                 cy.get(loginbutton).click()
             })
-
         cy.log("Login Successful")
     }
 }

@@ -4,19 +4,13 @@ import { myinfo } from "../../Pageobject/MyinfoPage";
 const lp = new loginpage()
 const my = new myinfo()
 
-Given(/^I login into the system$/, function () {
+Given(/^I login into the system and click on the myinfo page$/, function () {
     lp.login()
-});
-
-When(/^I click on the myinfo page$/, function () {
     my.myinfotab()
 });
 
-When(/^I click on the personal info tab$/, function () {
+When(/^I click on the personal info tab and click on the edit button$/, function () {
     my.peronaldclick()
-});
-
-When(/^I click on the edit button$/, function () {
     my.editpd()
     my.fillperonsonal()
     if (cy.get('.message').contains("Successfully Saved")) {

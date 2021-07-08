@@ -4,5 +4,8 @@
     "startdate": "2021-06-30",
     "enddate": "2021-07-01",
     "comment": "Bla bla bla",
-    "name": "Aaliyah Haq"
+    "name": "Aaliyah Haq",
+    "fromdate": "2020-07-12",
+    "todate": "2021-07-12",
+    "unit": "All"
 }

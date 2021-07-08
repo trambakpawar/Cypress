@@ -12,7 +12,7 @@ const attachmentcheckbox = "#attachmentsCheckAll"
 const deleteacttachment = "#btnDeleteAttachment"
 const savebutton1 = '#btnSave'
 const editcustombutton = "#btnEditCustom"
-
+const myinfodata = require("../../fixtures/UserData/MyInfoPage.json")
 export class myinfo {
 
     myinfotab() {
@@ -25,16 +25,16 @@ export class myinfo {
 
     fillperonsonal() {
         cy.get(firstname).clear()
-        cy.get(firstname).type("xyz")
+        cy.get(firstname).type(myinfodata.firstname)
         cy.get(middlename).clear()
-        cy.get(middlename).type("abc")
+        cy.get(middlename).type(myinfodata.middlename)
         cy.get(lastname).clear()
-        cy.get(lastname).type("pqr")
+        cy.get(lastname).type(myinfodata.lastname)
         cy.get(savebutton).click()
     }
 
     customfield() {
-        cy.get(bloodgroup).select("O+")
+        cy.get(bloodgroup).select(myinfodata.bloodgroup)
         cy.get(editbutton).click()
     }
 

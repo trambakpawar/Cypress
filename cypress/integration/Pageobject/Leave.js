@@ -35,12 +35,12 @@ export class leave {
     }
 
     searchemp() {
-        cy.get(fromdate).clear().type("2020-07-12").click()
+        cy.get(fromdate).clear().type(leavedata.fromdate).click()
         cy.get(lable2).click()
-        cy.get(todate).clear().type("2021-07-12").click()
+        cy.get(todate).clear().type(leavedata.todate).click()
         cy.get(lable2).click()
         cy.get(employeename).type(leavedata.name)
-        cy.get(subunit).select("All")
+        cy.get(subunit).select(leavedata.unit)
         cy.get(pastemp).check()
         cy.get(searchbutton).click()
     }

@@ -1,11 +1,10 @@
 Feature: Check the Login Page
 
- 
-  
+
+
 Scenario Outline: Opening a OrangeHRM  login page
     Given I open login page
-    When I submit "<username>" and "<password>"
-    When Click on login button
+    When I submit "<username>" and "<password>" and Click on login button
     Then Login Sucess Dashboard window should displayed.
 
 Examples:
