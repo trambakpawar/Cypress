@@ -1,6 +1,6 @@
 Feature: Check the Buzz page
 
-@focus
+
 Scenario: Post the Update
     Given I login into the system and I click on the buzz menu
     When I post the message in textbox

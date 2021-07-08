@@ -9,8 +9,9 @@ const uploadbutton = '#image-upload-button'
 const imageupload = "#imageUploadBtn"
 const deleteconfirm = "#delete_confirm"
 const dropdown = '.dropdown'
-const savebutton = '.btnEditShare'
+const savebutton = '.sharePopUpbutton > .btnEditShare'
 const textarea = ".in > .modal-body > .popUpContainer"
+const textarea1 = ".shareEditText"
 const buzzdata = require("../../fixtures/UserData/BuzzPage.json")
 export class post {
 
@@ -48,8 +49,9 @@ export class post {
         cy.get(dropdown).children().first().click().then(() => {
             cy.get("li").contains("Edit").click({ force: true })
         })
-        cy.get("#editshareBox_20").contains(buzzdata.comment).clear()
+        cy.get(textarea1).contains(buzzdata.message).clear()
         cy.get(textarea).type(buzzdata.message)
         cy.get(savebutton).focused().click({ force: true })
+
     }
 }
