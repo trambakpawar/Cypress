@@ -4,18 +4,14 @@ import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
 
 const a = new admin()
 const lp = new loginpage()
+const ad = require("../../../fixtures/UserData/AdminPage.json")
+const AdminPage = require("../../Pageobject/AdminPage/AdminPage")
 
-
-
-Given('Im login into the system', function () {
+Given('Im login into the system and click on the admin page', function () {
     lp.login()
     cy.log("Login success")
-});
-
-When('I click on the admin page', function () {
     a.adminbutton()
 });
-
 
 
 When('I enter the username to search', function () {
@@ -29,7 +25,7 @@ When('I enter the wrong username to search', function () {
     a.searchbutton()
 });
 Then('User data should displayed on the page', function () {
-    cy.contains('Admin')
+    cy.contains(ad.username)
     cy.screenshot()
 });
 
@@ -40,17 +36,9 @@ Then('No Record found should displayed on the page', function () {
 
 });
 
-When('I click on the add button', function () {
+When('I click on the add button and fill all the user data then click on save button', function () {
     a.addbutton()
-
-});
-
-When('I fill all the user data', function () {
     a.userdatafill()
-});
-
-
-When('I click on save button', function () {
     a.savebutton()
 });
 
@@ -66,21 +54,15 @@ Then("user sucessfully added message displayed on the page", function () {
 });
 
 
-When("I search the username", function () {
+When("I search the username and select it then click on delete button", function () {
     a.searchuser1()
     cy.get("#searchBtn").click()
-});
-
-When("I select the username through checkbox", function () {
     cy.get("#ohrmList_chkSelectAll").check()
-});
-
-When("I click on Delete button", function () {
     cy.get("#btnDelete").click()
     cy.wait(1000)
     cy.get("#dialogDeleteBtn").click()
 });
 
 Then("user sucessfully deleted message displayed on the page", function () {
-    cy.contains("Successfully Deleted")
+    cy.get("contents").should("contains", "Successfully Deleted")
 });

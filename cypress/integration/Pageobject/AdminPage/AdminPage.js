@@ -13,7 +13,7 @@ const username1 = "#systemUser_userName"
 const status = "#systemUser_status"
 const password = "#systemUser_password"
 const confirmpassword = "#systemUser_confirmPassword"
-// admin- organization page 
+// admin- organization page
 const organizationtab = "#menu_admin_Organization"
 const ginfo = "#menu_admin_viewOrganizationGeneralInformation"
 const editbutton = "#btnSaveGenInfo"
@@ -23,14 +23,14 @@ const locations = "#menu_admin_viewLocations"
 const country = "#searchLocation_country"
 const city1 = "#searchLocation_city"
 const searchbutton1 = "#btnSearch"
-const deletebutton = "#btnDelete" 
+const deletebutton = "#btnDelete"
 const confirmdelete = "#dialogDeleteBtn"
 const locationcheckbox = "#ohrmList_chkSelectAll"
 const structure = "#menu_admin_viewCompanyStructure"
 const addbutton = "#treeLink_addChild_11"
 const deletebutton1 = "#dialogYes"
 
-// add unit form 
+// add unit form
 const unitid = "#txtUnit_Id"
 const unitname = "#txtName"
 const description = "#txtDescription"
@@ -49,7 +49,7 @@ export class admin {
     }
 
     searchuser1() {
-        cy.get(username).type(admindata.username1)
+        cy.get(username).type(admindata.username3)
     }
     searchbutton() {
         cy.get(buttonsearch).click()
@@ -64,7 +64,7 @@ export class admin {
     }
 
     savebutton() {
-        cy.get(buttonsave).click()
+        cy.get(buttonsave).click({ force: true })
     }
 
     userdatafill() {
