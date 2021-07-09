@@ -3,49 +3,45 @@ import { loginpage } from "../../Pageobject/LoginPage"
 import { recruit } from "../../Pageobject/Recruitment";
 const lp = new loginpage()
 const rc = new recruit()
+const rcdata = require("../../../fixtures/UserData/Recruitment.json")
 
-
-Given(/^I login into the system$/, function () {
+Given(/^I login into the system and click on the recruitment page$/, function () {
     lp.login()
-});
-
-When(/^I click on the recruitment page$/, function () {
     rc.recruitmentpage()
 });
 
-When(/^I click on the candidate page$/, function () {
+When(/^I click on the candidate page and fill the data of candidate and click on search$/, function () {
     rc.candidatepage()
-});
-
-When(/^I fill the data of candidate and click on search$/, function () {
     rc.search()
 });
 
-When(/^I click on add button$/, function () {
-    rc.addbutton()
-});
-
-When(/^I search the candidate namd and select the candidate$/, function () {
-    rc.deletesearch()
-    cy.wait(1000)
-    rc.selectcandidate()
-
-});
-
-When(/^I search the candidate name$/, function () {
+When(/^I click on the candidate page and search the candidate name$/, function () {
+    rc.candidatepage()
     rc.search2()
 });
 
-Then(/^candidate name should be displayed$/, function () {
-    cy.contains("Matilda Fleenor")
+
+When(/^I click on the candidate page and click on add button and fill the add candidate form$/, function () {
+    rc.candidatepage
+    rc.addbutton()
+    rc.addcandidate()
 });
 
-Then(/^I fill the add candidate form$/, function () {
-    rc.addcandidate()
+When(/^I click on the candidate page and search the candidate name and select the candidate$/, function () {
+    rc.candidatepage()
+    rc.deletesearch()
+    cy.wait(1000)
+    rc.selectcandidate()
+});
+
+
+Then(/^candidate name should be displayed$/, function () {
+    cy.contains(rcdata.fullname)
 });
 
 Then(/^Candidate sucessfully get added$/, function () {
     cy.contains("Successfully Saved")
+    cy.screenshot
 });
 
 Then(/^I click on delete button and click on ok$/, function () {
@@ -60,6 +56,5 @@ Then(/^Candidate sucessfully get deleted$/, function () {
 
 Then(/^I click on download button$/, function () {
     rc.download()
-
 });
 

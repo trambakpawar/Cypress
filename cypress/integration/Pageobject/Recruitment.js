@@ -19,7 +19,7 @@ const deletebutton1 = "#btnDelete"
 const listecheckbox1 = "#ohrmList_chkSelectAll"
 const confirmdelete1 = "#dialogDeleteBtn"
 
-// vacancies page 
+// vacancies page
 const vacanciespage = "#menu_recruitment_viewJobVacancy"
 const searchtitle = "#vacancySearch_jobTitle"
 const searchbutton2 = "#btnSrch"
@@ -32,6 +32,7 @@ const vacanciesdescriptions = "#addJobVacancy_description"
 const vacanciesstatus = "#addJobVacancy_status"
 const vacanciespublished = "#addJobVacancy_publishedInFeed"
 const savebutton3 = "#btnSave"
+const rcdata = require("../../fixtures/UserData/Recruitment.json")
 
 export class recruit {
     recruitmentpage() {
@@ -43,8 +44,8 @@ export class recruit {
     }
 
     search() {
-        cy.get(jobtitle).select("Account Assistant")
-        cy.get(candidatename).type("Matilda Fleenor")
+        cy.get(jobtitle).select(rcdata.title)
+        cy.get(candidatename).type(rcdata.candidatename)
         cy.get(searchbutton).click()
 
     }
@@ -55,17 +56,17 @@ export class recruit {
 
 
     addcandidate() {
-        cy.get(candidatefirstname).type("Trambak")
-        cy.get(candidatemiddlenanme).type("Ramesh")
-        cy.get(candidatelastname).type("pawar")
-        cy.get(candidateemail).type("trambak.1912@gmail.com")
-        cy.get(candidatecontact).type("9404504578")
-        cy.get(candidatevacancy).select("Software Engineer")
+        cy.get(candidatefirstname).type(rcdata.firstname)
+        cy.get(candidatemiddlenanme).type(rcdata.middlename)
+        cy.get(candidatelastname).type(rcdata.lastname)
+        cy.get(candidateemail).type(rcdata.email)
+        cy.get(candidatecontact).type(rcdata.contactno)
+        cy.get(candidatevacancy).select(rcdata.vacancy)
 
         const filename = "1.pdf"
         cy.get(candidateresume).attachFile(filename)
-        cy.get(candidatekeywords).type("software,IOT")
-        cy.get(candidatecomment).type("hahahahaha")
+        cy.get(candidatekeywords).type(rcdata.keywords)
+        cy.get(candidatecomment).type(rcdata.comment)
 
         cy.get(consentcheckbox).check()
         cy.get(savebutton2).click()
@@ -76,7 +77,7 @@ export class recruit {
     }
 
     selectcandidate() {
-        cy.get(listecheckbox1).check()
+        cy.contains('tr', rcdata.fullname).find('input').check()
     }
 
     confirmdelete() {
@@ -84,18 +85,18 @@ export class recruit {
     }
 
     deletesearch() {
-        cy.get(jobtitle).select("Software Engineer")
-        cy.get(candidatename).type("Trambak Ramesh Pawar")
+        cy.get(jobtitle).select(rcdata.vacancy)
+        cy.get(candidatename).type(rcdata.fullname)
         cy.get(searchbutton).click()
     }
 
     search2() {
-        cy.get(candidatename).type("Trambak Ramesh Pawar")
+        cy.get(candidatename).type(rcdata.fullname)
         cy.get(searchbutton).click()
     }
 
     download() {
-        cy.get('.odd > :nth-child(7)').click()
+        cy.contains('tr', rcdata.fullname).find('link').click()
     }
 
     vacanciespage() {
@@ -115,11 +116,11 @@ export class recruit {
     }
 
     addvacancy() {
-        cy.get(vacanciestitle).select("Software Engineer")
-        cy.get(vacanciesname).type("Software Tester")
-        cy.get(vacanciesmanager).type("Orange Test")
-        cy.get(vacanciespositions).type("100")
-        cy.get(vacanciesdescriptions).type("bla bla bla")
+        cy.get(vacanciestitle).select(rcdata.vacancy)
+        cy.get(vacanciesname).type(rcdata.vacancyname)
+        cy.get(vacanciesmanager).type(rcdata.manager)
+        cy.get(vacanciespositions).type(rcdata.position)
+        cy.get(vacanciesdescriptions).type(rcdata.comment)
         cy.get(vacanciesstatus).check()
         cy.get(vacanciespublished).check()
         cy.wait(1000)
