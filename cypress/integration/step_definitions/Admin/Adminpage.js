@@ -29,7 +29,6 @@ Then('User data should displayed on the page', function () {
     cy.screenshot()
 });
 
-
 Then('No Record found should displayed on the page', function () {
     cy.contains('No Records Found')
     cy.screenshot()
@@ -42,7 +41,6 @@ When('I click on the add button and fill all the user data then click on save bu
     a.savebutton()
 });
 
-
 Then('No Record found should displayed on the page', function () {
     cy.contains('No Records Found')
     cy.screenshot()
@@ -52,7 +50,6 @@ Then('No Record found should displayed on the page', function () {
 Then("user sucessfully added message displayed on the page", function () {
     cy.contains("Successfully Saved")
 });
-
 
 When("I search the username and select it then click on delete button", function () {
     a.searchuser1()

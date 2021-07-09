@@ -75,6 +75,7 @@ export class admin {
         cy.get(password).type(admindata.password)
         cy.get(confirmpassword).type(admindata.confirmpassword)
     }
+
     organizationtab() {
         cy.get(organizationtab).click({ force: true })
     }
