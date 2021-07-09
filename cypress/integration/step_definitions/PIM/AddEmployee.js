@@ -5,27 +5,18 @@ const lp = new loginpage()
 const pm = new addemp()
 
 
-Given('I login into the system', function () {
+Given('I login into the system and click on the PIM menu', function () {
     lp.login()
-});
-
-When('I click on the PIM menu', function () {
     pm.pimpage()
 });
 
-When('I click on the Add employee page', function () {
+When('I click on the Add employee page and fill all the data of user into the form1', function () {
     pm.addemppage()
-});
-
-When('I fill all the data of user into the form1', function () {
     pm.firstform()
 });
 
-When('I fill all the data into form2', function () {
+When('I fill all the data into form2 and Click on Save button', function () {
     pm.secondform()
-});
-
-Then('I Click on Save button', function () {
     pm.savebutton()
 });
 
@@ -42,12 +33,8 @@ When('I click on the Employee List page', function () {
     pm.emppage()
 });
 
-Then('I Search the Employee Name', function () {
+Then('I Search the Employee Name and Click on Search button', function () {
     pm.search()
-
-
-});
-Then('I Click on Search button', function () {
     pm.searchbutton1()
 });
 
@@ -55,14 +42,12 @@ Then('Employee Should be displaayed', function () {
     pm.viewuser()
 });
 
-Then('I Select the employee', function () {
+When('I Select the employee and Click on the Delete button and the OK button', function () {
     pm.checkbox()
-});
-
-Then('I Click on the Delete button and Clicked on OK button', function () {
     pm.delete()
 });
 
 Then('Employee should get deleted from database', function () {
-    cy.contains("Successfully Deleted")
+    cy.contains("No Records Found").should("be.visible")
+    cy.screenshot()
 });

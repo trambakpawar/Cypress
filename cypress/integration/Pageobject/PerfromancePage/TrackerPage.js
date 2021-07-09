@@ -1,5 +1,4 @@
 const emptrackerpage = "#menu_performance_viewEmployeePerformanceTrackerList"
-
 const addbutton = "#btnAdd"
 const log = "#addperformanceTrackerLog_log"
 const achievement = "#addperformanceTrackerLog_achievement"
@@ -14,19 +13,16 @@ export class tracker {
     }
 
     viewemp() {
-        if (cy.contains("Manojj shinde")) {
-            cy.contains("Manojj shinde").should("be.visible").click()
-        }
+        cy.contains(track.supervisorname).should("be.visible").click()
     }
     addemployee() {
         if (cy.contains("Add")) {
             cy.get(addbutton).click()
+            cy.get(log).type(track.log)
+            cy.get(achievement).select(track.achievement)
+            cy.get(comment).type(track.comment)
+            cy.get(savebutton).click()
         }
-    }
-    filldata() {
-        cy.get(log).type(track.log)
-        cy.get(achievement).select(track.achievement)
-        cy.get(comment).type(track.comment)
-        cy.get(savebutton).click()
+
     }
 }

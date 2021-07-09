@@ -8,24 +8,19 @@ const lp = new loginpage()
 const pf = new perform()
 const tr = new tracker()
 
-Given(/^I login into the system$/, function () {
+Given(/^I login into the system and click on the Performance page$/, function () {
     cy.login()
-});
-
-When(/^I click on the Performance page$/, function () {
     pf.performancepage()
 });
 
-When(/^I click on employee trakcers page$/, function () {
+When(/^I click on employee trakcers page and click on the employee name$/, function () {
     tr.trackerpage()
-});
-
-When(/^I click on the employee name on trakcer page$/, function () {
     tr.viewemp()
 });
 
 Then(/^Employee should get added to tracker log$/, function () {
     if (cy.contains("Fiona Grace").should("be.visible")) {
+        tr.addemployee()
         cy.screenshot()
     }
 });

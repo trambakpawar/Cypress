@@ -1,4 +1,4 @@
-// PIM Page 
+// PIM Page
 const pimpage = "#menu_pim_viewPimModule > b"
 const addemployee = "#menu_pim_addEmployee"
 const firstname = "#firstName"
@@ -35,10 +35,8 @@ export class addemp {
         cy.get(lastname).type("Pawar")
         cy.get(empid).clear()
         cy.get(empid).type("4578")
-
         const filename = "1.jpg"
         cy.get(photo).attachFile(filename)
-
     }
 
     checklogin() {

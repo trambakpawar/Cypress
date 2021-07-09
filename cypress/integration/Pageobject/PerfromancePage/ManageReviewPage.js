@@ -11,6 +11,8 @@ const duedate = "#saveReview360Form_dueDate"
 const savebutton = "#saveBtn"
 const activatebutton = "#activateBtn"
 const lableclick = ':nth-child(2) > .lableValue'
+const lableclick1 = ":nth-child(2) > .ui-datepicker-trigger"
+const lableclick2 = ":nth-child(3) > .lableValue"
 const reviwelistpage = "#menu_performance_searchEvaluatePerformancReview"
 const employeename1 = "#evaluatePerformanceReview360SearchForm_employeeName"
 const reviewsearchbutton = "#searchBtn"
@@ -32,20 +34,18 @@ export class reviews {
         cy.get(searchbutton).click()
 
     }
-    addbutton() {
+
+    addemployee() {
         cy.get(addbutton).click()
         cy.wait(1000)
-    }
-    addemployee() {
-
         cy.get(employeesearch).type(per.employeesearch).type('{enter}')
-        cy.get(supervisorname).type(per.supervisorname)
+        cy.get(supervisorname).type(per.reviewername)
         cy.get(startdate).type(per.startdate)
         cy.get(lableclick).click()
         cy.get(enddate).type(per.enddate)
-        cy.get(lableclick).click()
+        cy.get(lableclick1).click()
         cy.get(duedate).type(per.duedate)
-        cy.get(lableclick).click()
+        cy.get(lableclick2).click()
         cy.get(activatebutton).click()
         cy.get(savebutton).click()
     }
