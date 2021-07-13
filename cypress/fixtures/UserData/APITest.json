@@ -1,0 +1,13 @@
+{
+    "method": "GET",
+    "url": "https://gorest.co.in/public/v1/users",
+    "url1": "https://gorest.co.in/public/v1/users/15",
+    "key": "Bearer 86578f247bcefbc92600148f789716934170b04e27f2b972a111d4db3c26291e",
+    "methode": "POST",
+    "body": {
+        "name": "Trambak Pawar",
+        "email": "trambak.1912@gmail.com",
+        "gender": "Male",
+        "status": "active"
+    }
+}
