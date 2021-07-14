@@ -13,3 +13,9 @@ Then(/^I post the data to api$/, function () {
 
 });
 
+Then(/^I post the data to api and check it again$/, function () {
+
+    aa.postget()
+
+});
+
