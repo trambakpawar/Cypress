@@ -104,6 +104,11 @@
             cy.get("li").contains("Edit").click({ force: true })
         })
 
+## 13. For retry the failed test cases
+     "retries": {
+     "runMode": 2,
+  }
+
 # Folder Structure:-
 
 ## 1. Fixtures:
