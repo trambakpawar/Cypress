@@ -18,7 +18,16 @@ const dateformat = "#localization_default_date_format"
 const languagepage = "#menu_admin_languagePackage"
 const addbutton = "#btnAdd"
 const selectlanguage = "#addLanguagePackage_name"
-
+// module page
+const modulepage = "#menu_admin_viewModules"
+const directorymodule = "#moduleConfig_recruitment"
+//Social Media Page
+const socialpage = "#menu_admin_openIdProvider"
+const type = "#openIdProvider_type"
+const name = "#openIdProvider_name"
+const url = "#openIdProvider_url"
+const deletebutton = "#btnDelete"
+const confirmdelete = "#dialogDeleteBtn"
 const admindata = require("../../../fixtures/UserData/AdminPage.json")
 
 export class config {
@@ -77,5 +86,31 @@ export class config {
         cy.get(languagepage).click({ force: true })
         cy.contains('tr', admindata.langauge1).find('a').eq(1).click()
         cy.reload()
+    }
+
+    moduledelete() {
+        cy.get(modulepage).click({ force: true })
+        cy.get(savebutton).click()
+        cy.get(directorymodule).uncheck()
+        cy.get(savebutton).click()
+    }
+
+    smapage() {
+        cy.get(socialpage).click({ force: true })
+        cy.get(addbutton).click()
+    }
+
+    providerform() {
+        cy.get(type).select(admindata.type)
+        cy.get(name).type(admindata.name)
+        cy.get(url).type(admindata.url)
+        cy.get(savebutton).click()
+    }
+
+    deleteprovider() {
+        cy.get(socialpage).click({ force: true })
+        cy.contains('tr', admindata.name).find('input').check()
+        cy.get(deletebutton).click()
+        cy.get(confirmdelete).click()
     }
 }

@@ -3,6 +3,7 @@ import { loginpage } from "../../Pageobject/LoginPage"
 import { addemp } from "../../Pageobject/PIMpage"
 const lp = new loginpage()
 const pm = new addemp()
+const pimdata = require("../../../fixtures/UserData/PIMPage.json")
 
 
 Given('I login into the system and click on the PIM menu', function () {
@@ -21,7 +22,7 @@ When('I fill all the data into form2 and Click on Save button', function () {
 });
 
 Then('Employee Sucessfully added message will be displaayed', function () {
-    cy.contains("Trambak Ramesh Pawar ")
+    cy.contains(pimdata.fullname).should("be.visible")
     cy.screenshot()
 });
 

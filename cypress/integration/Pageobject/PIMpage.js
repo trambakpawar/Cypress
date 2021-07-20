@@ -19,6 +19,7 @@ const listecheckbox = "#ohrmList_chkSelectAll"
 const deletebutton = "#btnDelete"
 const confirmdelete = "#dialogDeleteBtn"
 
+const pimdata = require("../../fixtures/UserData/PIMPage.json")
 
 export class addemp {
     pimpage() {
@@ -30,11 +31,11 @@ export class addemp {
     }
 
     firstform() {
-        cy.get(firstname).type("Trambak")
-        cy.get(middlename).type("Ramesh")
-        cy.get(lastname).type("Pawar")
+        cy.get(firstname).type(pimdata.firstname)
+        cy.get(middlename).type(pimdata.middlename)
+        cy.get(lastname).type(pimdata.lastname)
         cy.get(empid).clear()
-        cy.get(empid).type("4578")
+        cy.get(empid).type(pimdata.empid)
         const filename = "1.jpg"
         cy.get(photo).attachFile(filename)
     }
@@ -44,10 +45,10 @@ export class addemp {
     }
 
     secondform() {
-        cy.get(username).type("Trambak19")
-        cy.get(password).type("12345678")
-        cy.get(repassword).type("12345678")
-        cy.get(status).select("Enabled")
+        cy.get(username).type(pimdata.username)
+        cy.get(password).type(pimdata.password)
+        cy.get(repassword).type(pimdata.confirmpassword)
+        cy.get(status).select(pimdata.status)
     }
 
     savebutton() {
@@ -60,14 +61,14 @@ export class addemp {
 
     search() {
         cy.wait(1000)
-        cy.get(empnamesearch).type("Trambak Ramesh Pawar")
+        cy.get(empnamesearch).type(pimdata.fullname)
     }
     searchbutton1() {
         cy.get(searchbutton).click()
     }
 
     viewuser() {
-        cy.get("#resultTable > tbody > tr > td:nth-child(3) > a").contains("Trambak Ramesh")
+        cy.contains('tr', pimdata.firstname).find('input').check()
     }
 
     checkbox() {
