@@ -1,12 +1,16 @@
 {
-    "firstname":"Trambak",
-    "middlename":"Ramesh",
-    "lastname":"Pawar",
-    "empid":"4578",
-    "username":"Trambak19",
-    "password":"12345678",
-    "confirmpassword":"12345678",
-    "status":"Enabled",
-    "fullname":"Trambak Ramesh Pawar"
-
+    "firstname": "Trambak",
+    "middlename": "Ramesh",
+    "lastname": "Pawar",
+    "empid": "4578",
+    "username": "Trambak19",
+    "password": "12345678",
+    "confirmpassword": "12345678",
+    "status": "Enabled",
+    "fullname": "Trambak Ramesh Pawar",
+    "fieldname": "Age",
+    "screen": "Personal Details",
+    "type": "Text or Number",
+    "reporting": "Calling",
+    "reason": "Harrassment"
 }

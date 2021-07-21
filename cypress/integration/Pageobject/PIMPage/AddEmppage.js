@@ -19,7 +19,7 @@ const listecheckbox = "#ohrmList_chkSelectAll"
 const deletebutton = "#btnDelete"
 const confirmdelete = "#dialogDeleteBtn"
 
-const pimdata = require("../../fixtures/UserData/PIMPage.json")
+const pimdata = require("../../../fixtures/UserData/PIMPage.json")
 
 export class addemp {
     pimpage() {

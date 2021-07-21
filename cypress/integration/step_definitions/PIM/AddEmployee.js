@@ -1,6 +1,6 @@
 import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
 import { loginpage } from "../../Pageobject/LoginPage"
-import { addemp } from "../../Pageobject/PIMpage"
+import { addemp } from "../../Pageobject/PIMpage/AddEmppage"
 const lp = new loginpage()
 const pm = new addemp()
 const pimdata = require("../../../fixtures/UserData/PIMPage.json")
