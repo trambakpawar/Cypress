@@ -44,8 +44,8 @@ export class recruit {
     }
 
     search() {
-        cy.get(jobtitle).select(rcdata.title)
-        cy.get(candidatename).type(rcdata.candidatename)
+
+        cy.get(candidatename).type(rcdata.fullname)
         cy.get(searchbutton).click()
 
     }
@@ -74,21 +74,13 @@ export class recruit {
     }
     deletecandidate() {
         cy.get(deletebutton1).click()
+        cy.get(confirmdelete1).click()
     }
 
     selectcandidate() {
         cy.contains('tr', rcdata.fullname).find('input').check()
     }
 
-    confirmdelete() {
-        cy.get(confirmdelete1).click()
-    }
-
-    deletesearch() {
-        cy.get(jobtitle).select(rcdata.vacancy)
-        cy.get(candidatename).type(rcdata.fullname)
-        cy.get(searchbutton).click()
-    }
 
     search2() {
         cy.get(candidatename).type(rcdata.fullname)
@@ -96,7 +88,7 @@ export class recruit {
     }
 
     download() {
-        cy.contains('tr', rcdata.fullname).find('link').click()
+        cy.contains('tr', rcdata.fullname).find('a').eq(1).click()
     }
 
     vacanciespage() {

@@ -49,7 +49,7 @@ export class admin {
     }
 
     searchuser1() {
-        cy.get(username).type(admindata.username3)
+        cy.get(username).type(admindata.username3 + '2')
     }
     searchbutton() {
         cy.get(buttonsearch).click()
@@ -64,16 +64,18 @@ export class admin {
     }
 
     savebutton() {
-        cy.get(buttonsave).click({ force: true })
+        cy.get(buttonsave).click()
     }
 
     userdatafill() {
         cy.get(userrole).select(admindata.userrole)
         cy.get(empname).type(admindata.employeename)
-        cy.get(username1).type(admindata.username3)
+        cy.get(username1).type(admindata.username3 + '2')
         cy.get(status).select(admindata.status)
         cy.get(password).type(admindata.password)
         cy.get(confirmpassword).type(admindata.confirmpassword)
+        cy.wait(1000)
+        cy.get(buttonsave).click({ force: true })
     }
 
     organizationtab() {

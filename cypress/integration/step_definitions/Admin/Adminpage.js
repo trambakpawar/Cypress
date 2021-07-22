@@ -38,7 +38,7 @@ Then('No Record found should displayed on the page', function () {
 When('I click on the add button and fill all the user data then click on save button', function () {
     a.addbutton()
     a.userdatafill()
-    a.savebutton()
+
 });
 
 Then('No Record found should displayed on the page', function () {
@@ -48,7 +48,7 @@ Then('No Record found should displayed on the page', function () {
 });
 
 Then("user sucessfully added message displayed on the page", function () {
-    cy.contains("Successfully Saved")
+    cy.get('#search-results > .inner').contains(ad.username3).should("be.visible")
 });
 
 When("I search the username and select it then click on delete button", function () {
@@ -61,5 +61,5 @@ When("I search the username and select it then click on delete button", function
 });
 
 Then("user sucessfully deleted message displayed on the page", function () {
-    cy.get("contents").should("contains", "Successfully Deleted")
+    cy.get('#search-results > .inner').contains(ad.username3).should("not.exist")
 });

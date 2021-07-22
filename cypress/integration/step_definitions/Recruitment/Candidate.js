@@ -29,32 +29,35 @@ When(/^I click on the candidate page and click on add button and fill the add ca
 
 When(/^I click on the candidate page and search the candidate name and select the candidate$/, function () {
     rc.candidatepage()
-    rc.deletesearch()
-    cy.wait(1000)
+    rc.search2()
     rc.selectcandidate()
 });
 
 
 Then(/^candidate name should be displayed$/, function () {
-    cy.contains(rcdata.fullname)
+    cy.get("#search-results > div").contains(rcdata.fullname).should("be.visible")
+    cy.screenshot()
 });
 
 Then(/^Candidate sucessfully get added$/, function () {
-    cy.contains("Successfully Saved")
-    cy.screenshot
+    cy.get("#search-results > div").contains(rcdata.fullname).should("be.visible")
+    cy.screenshot()
 });
 
 Then(/^I click on delete button and click on ok$/, function () {
     rc.deletecandidate()
-    cy.wait(1000)
-    rc.confirmdelete()
+
 });
 
 Then(/^Candidate sucessfully get deleted$/, function () {
-    cy.contains("Successfully Deleted")
+    cy.get("#search-results > div").contains(rcdata.fullname).should("not.exist")
+    cy.screenshot()
 });
 
 Then(/^I click on download button$/, function () {
     rc.download()
+    cy.reload()
+    cy.get("#search-results > div").contains(rcdata.fullname).should("be.visible")
+    cy.screenshot()
 });
 
