@@ -38,7 +38,7 @@ export class config {
     }
 
     editemail() {
-        cy.get(emailpage).click({ force: true })
+        cy.get(emailconfigpage).click({ force: true })
         cy.get(editbutton).click()
 
     }

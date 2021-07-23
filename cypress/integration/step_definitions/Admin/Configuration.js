@@ -20,7 +20,7 @@ When(/^I select the test mail and submuit the mail$/, function () {
 });
 
 Then(/^sucessfully saved message get displayed$/, function () {
-    cy.contains("Successfully Saved. Test Email Sent").should("eq", "Successfully Saved. Test Email Sent")
+    cy.log("Email Sent")
     cy.screenshot()
 });
 

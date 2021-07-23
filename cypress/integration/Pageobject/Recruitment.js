@@ -1,6 +1,5 @@
 const recruitpage = "#menu_recruitment_viewRecruitmentModule > b"
 const candidatepage = "#menu_recruitment_viewCandidates"
-const jobtitle = "#candidateSearch_jobTitle"
 const candidatename = "#candidateSearch_candidateName"
 const searchbutton = "#btnSrch"
 const addbutton = "#btnAdd"
@@ -15,9 +14,8 @@ const candidatekeywords = "#addCandidate_keyWords"
 const candidatecomment = "#addCandidate_comment"
 const consentcheckbox = "#addCandidate_consentToKeepData"
 const savebutton2 = "#btnSave"
-const deletebutton1 = "#btnDelete"
-const listecheckbox1 = "#ohrmList_chkSelectAll"
-const confirmdelete1 = "#dialogDeleteBtn"
+const deletebutton = "#btnDelete"
+const confirmdelete = "#dialogDeleteBtn"
 
 // vacancies page
 const vacanciespage = "#menu_recruitment_viewJobVacancy"
@@ -32,6 +30,7 @@ const vacanciesdescriptions = "#addJobVacancy_description"
 const vacanciesstatus = "#addJobVacancy_status"
 const vacanciespublished = "#addJobVacancy_publishedInFeed"
 const savebutton3 = "#btnSave"
+
 const rcdata = require("../../fixtures/UserData/Recruitment.json")
 
 export class recruit {
@@ -50,12 +49,8 @@ export class recruit {
 
     }
 
-    addbutton() {
-        cy.get(addbutton).click()
-    }
-
-
     addcandidate() {
+        cy.get(addbutton).click()
         cy.get(candidatefirstname).type(rcdata.firstname)
         cy.get(candidatemiddlenanme).type(rcdata.middlename)
         cy.get(candidatelastname).type(rcdata.lastname)
@@ -73,7 +68,7 @@ export class recruit {
 
     }
     deletecandidate() {
-        cy.get(deletebutton1).click()
+        cy.get(deletebutton).click()
         cy.get(confirmdelete1).click()
     }
 
@@ -87,9 +82,7 @@ export class recruit {
         cy.get(searchbutton).click()
     }
 
-    download() {
-        cy.contains('tr', rcdata.fullname).find('a').eq(1).click()
-    }
+
 
     vacanciespage() {
         cy.get(vacanciespage).click({ force: true })
@@ -103,11 +96,10 @@ export class recruit {
         cy.get(searchbutton2).click()
     }
 
-    addbutton2() {
-        cy.get(addbutton3).click()
-    }
+
 
     addvacancy() {
+        cy.get(addbutton3).click()
         cy.get(vacanciestitle).select(rcdata.vacancy)
         cy.get(vacanciesname).type(rcdata.vacancyname)
         cy.get(vacanciesmanager).type(rcdata.manager)
@@ -115,8 +107,15 @@ export class recruit {
         cy.get(vacanciesdescriptions).type(rcdata.comment)
         cy.get(vacanciesstatus).check()
         cy.get(vacanciespublished).check()
-        cy.wait(1000)
         cy.get(savebutton3).click()
+        this.recruitmentpage()
+        this.vacanciespage()
+    }
+
+    deletevacancy() {
+        cy.contains('tr', rcdata.vacancyname).find('input').check()
+        cy.get(deletebutton).click()
+        cy.get(confirmdelete).click()
     }
 }
 

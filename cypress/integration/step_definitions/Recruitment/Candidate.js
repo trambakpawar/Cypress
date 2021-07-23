@@ -23,7 +23,6 @@ When(/^I click on the candidate page and search the candidate name$/, function (
 
 When(/^I click on the candidate page and click on add button and fill the add candidate form$/, function () {
     rc.candidatepage
-    rc.addbutton()
     rc.addcandidate()
 });
 
@@ -53,11 +52,3 @@ Then(/^Candidate sucessfully get deleted$/, function () {
     cy.get("#search-results > div").contains(rcdata.fullname).should("not.exist")
     cy.screenshot()
 });
-
-Then(/^I click on download button$/, function () {
-    rc.download()
-    cy.reload()
-    cy.get("#search-results > div").contains(rcdata.fullname).should("be.visible")
-    cy.screenshot()
-});
-
